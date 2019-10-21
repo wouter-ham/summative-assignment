@@ -24,7 +24,7 @@ class Amplifier:
 
             return self.amplified
 
-    def int2base(self, number, base):
+    def int2base(self, number, base) -> int:
         if number < 0:
             sign = -1
         elif number == 0:
@@ -41,6 +41,7 @@ class Amplifier:
 
         if sign < 0:
             digits.insert(0, '-')
+
         return int(''.join(digits))
 
 
