@@ -6,15 +6,13 @@ class Amplifier:
 
     def __init__(self, source: int):
         self.source = source
-        self.source_list = [10] if len([int(x) for x in str(source)]) == 1 else [int(x) for x in str(source)]
+        self.source_list = [int(x) for x in str(source)]
         self.unique()
 
         # [10] if len([int(x) for x in str(source)]) == 1 else [int(x) for x in str(source)]
 
     def unique(self) -> list:
-        for x in self.source_list:
-            if x not in self.unique_list:
-                self.unique_list.append(x)
+        self.unique_list = list(set(self.source_list))
         return self.unique_list
 
     def dec2bin(self, getal: int) -> str:
@@ -41,7 +39,7 @@ class Amplifier:
             self.amplified = (
                 self.source,
                 sum(self.unique_list),
-                len(str(self.unique_list))
+                10 if len(self.unique_list) == 1 else len(self.unique_list)
             )
 
             return self.amplified
@@ -49,5 +47,3 @@ class Amplifier:
 
 for x in (1, 2, 12, 1221, 123456789, 123123123123456789999, 1359, 9531, 315191):
     print(Amplifier(x).amplify())
-
-# print(Amplify(1298327111).unique())
