@@ -1,4 +1,10 @@
 class Amplify:
+    source = ''
+    output = ''
+
+    def __init__(self, source: str):
+        self.source = source
+
     def dec2bin(self: int) -> str:
         output = ''
 
@@ -18,5 +24,5 @@ class Amplify:
 
         return output
 
-
-print(Amplify.bin2dec('101010'))
+    def calculate(self):
+        return self
