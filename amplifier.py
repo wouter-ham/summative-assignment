@@ -15,31 +15,18 @@ class Amplifier:
         self.unique_list = list(set(self.source_list))
         return self.unique_list
 
-    def dec2bin(self, getal: int) -> str:
-        output = ''
-
-        while getal > 0:
-            output = str(getal % 2) + output
-            getal = getal // 2
-
-        return output
-
-    def bin2dec(self, string: str) -> int:
-        output = 0
-        i = len(string) - 1
-        while i >= 0:
-            output = output * 2
-            output = output + int(string[i])
-            i = i - 1
-
-        return output
-
     def amplify(self):
         if int(self.source) > 0:
+            n = self.source,
+            s = sum(self.unique_list),
+            b = 10 if len(self.unique_list) == 1 else len(self.unique_list)
+            x = int(str(n // s) + str(n % s))
+
             self.amplified = (
-                self.source,
-                sum(self.unique_list),
-                10 if len(self.unique_list) == 1 else len(self.unique_list)
+                n,
+                s,
+                b,
+                x
             )
 
             return self.amplified
