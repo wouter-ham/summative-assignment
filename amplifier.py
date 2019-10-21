@@ -7,11 +7,7 @@ class Amplifier:
     def __init__(self, source: int):
         self.source = source
         self.source_list = [int(x) for x in str(source)]
-        self.unique()
-
-    def unique(self) -> list:
         self.unique_list = list(set(self.source_list))
-        return self.unique_list
 
     def amplify(self):
         if int(self.source) > 0:
